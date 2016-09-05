@@ -32,7 +32,7 @@ var Task = React.createClass({
             <h3>{this.props.taskTitle}</h3>
           </Link>
           <div className="caption white">
-            <p>Here goes the project description</p>
+            <p>{this.props.desc}</p>
             <ul>
               {renderTechnologies()}
             </ul>

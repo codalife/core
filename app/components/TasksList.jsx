@@ -33,6 +33,7 @@ var TasksList = React.createClass({
          <Task
           key={task.id}
           taskTitle={task.taskTitle}
+          desc={task.desc}
           category={task.category}
           technologies={task.technologies}
           completion={task.completion}
