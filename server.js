@@ -10,12 +10,11 @@ const PORT = process.env.PORT || 8080;
 // Set /public as our static content dir
 app.use("/", express.static(__dirname + "/public"));
 
-app.use(function(rq, res, next){
-  if(req.headers['x-forwarded-ptoto'] == 'http'){
-    next();
-
+app.use(function(req, res, next){
+  if(req.headers['x-forwarded-ptoto'] == 'https'){
+    res.redirect('https://'+req.hostname+req.url)
   } else {
-    res.redirect('http://'+req.hostname+req.url)
+    next();
   };
 })
 
