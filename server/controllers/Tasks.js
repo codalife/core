@@ -19,13 +19,13 @@ module.exports = (function(){
                             desc: req.body.desc,
                             category: req.body.category,
                             completion: req.body.completion});
-			// task.save(function(err){
-			// 	if(err){
-			// 		console.log('saving failed');
-			// 	} else{
-			// 		res.json('success');
-			// 	}
-			// })
+			task.save(function(err){
+				if(err){
+					console.log('saving failed');
+				} else{
+					res.json('success');
+				}
+			})
     }
   }
 })();
