@@ -23,7 +23,7 @@ var ToDoList = React.createClass({
       }
     };
     return (
-      <div>
+      <div className="col-md-4 col-sm-12">
         <h3>To Do List:</h3>
         {renderToDos()}
       </div>
