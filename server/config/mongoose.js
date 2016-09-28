@@ -46,9 +46,8 @@ db.once('open', function callback () {
    * to the hit "One Sweet Day".
    */
 
-    }
-  )
-});
+ });
+
 
 /*
 var mongoose = require('mongoose');
