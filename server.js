@@ -24,7 +24,7 @@ app.use(function(req, res, next){
   };
 })
 
-//require('./server/config/routes.js')(app);
+require('./server/config/routes.js')(app);
 
 // Fire it up (start our server)
 var server = app.listen(PORT, function() {
