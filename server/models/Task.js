@@ -1,3 +1,4 @@
+/*
 var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
@@ -14,3 +15,4 @@ var taskSchema = new mongoose.Schema({
 });
 
 var Task = mongoose.model('task', taskSchema);
+*/
