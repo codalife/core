@@ -31,8 +31,6 @@ db.once('open', function callback () {
   	desc: "Love is tough",
   	category: "Work In Progress",
   	completion: "30%",
-    urls: ["https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/"],
-    image: "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/6-006f11.jpg",
     priority: "High"
   });
 
@@ -47,36 +45,7 @@ db.once('open', function callback () {
    * Then we need to give Boyz II Men credit for their contribution
    * to the hit "One Sweet Day".
    */
-  Task.update({ Task: 'One Sweet Day'}, { $set: { artist: 'Mariah Carey ft. Boyz II Men'} },
-    function (err, numberAffected, raw) {
 
-      if (err) return handleError(err);
-
-      /*
-       * Finally we run a query which returns all the hits that spend 10 or
-       * more weeks at number 1.
-       */
-      Task.find({ weeksAtOne: { $gte: 10} }).sort({ decade: 1}).exec(function (err, docs){
-
-        if(err) throw err;
-
-        docs.forEach(function (doc) {
-          console.log(
-            'In the ' + doc['decade'] + ', ' + doc['Task'] + ' by ' + doc['artist'] +
-            ' topped the charts for ' + doc['weeksAtOne'] + ' straight weeks.'
-          );
-        });
-
-        // Since this is an example, we'll clean up after ourselves.
-        mongoose.connection.db.collection('Tasks').drop(function (err) {
-          if(err) throw err;
-
-          // Only close the connection when your app is terminating
-          mongoose.connection.db.close(function (err) {
-            if(err) throw err;
-          });
-        });
-      });
     }
   )
 });
