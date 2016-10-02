@@ -5,8 +5,16 @@ module.exports = function(app){
 
    });
 
-   app.get('/test', function(req, res){
+   app.get('/wip', function(req, res){
      tasks.getCurrent(req, res);
+   });
+
+   app.get('/on-hold', function(req, res){
+     tasks.getOnHold(req, res);
+   });
+
+   app.get('/completed', function(req, res){
+     tasks.getCompleted(req, res);
    });
 
    app.post('/newTask', function(req, res){

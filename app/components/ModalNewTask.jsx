@@ -7,7 +7,7 @@ var ModalNewTask = React.createClass({
         taskTitle: "",
         desc: "",
         category: "",
-        completion: ""
+        completion: "0"
     }
   },
   getDefaultProps: function(){
@@ -35,13 +35,17 @@ var ModalNewTask = React.createClass({
 
     this.props.onHandleClick();
   },
+  changeCompletion: function(event){
+    this.setState({completion: event.target.value});
+  },
   render: function(){
     return (
       <Modal
         aria-labelledby='modal-label'
         show={this.props.showModal}
+
       >
-        <form onSubmit={this.createNewTask}>
+        <form className='modal-form' onSubmit={this.createNewTask}>
           <div className="form-group">
             <label for="taskTitle">Task Title:</label>
             <input type="text" className="form-control" ref="taskTitle"/>
@@ -50,21 +54,23 @@ var ModalNewTask = React.createClass({
             <label for="desc">Description:</label>
             <input type="text" className="form-control" ref="desc"/>
           </div>
+
           <div className="form-group">
-            <label for="desc">Category:</label>
-            <input type="text" className="form-control" ref="category"/>
+            <label for="sel1">Select list:</label>
+            <select className="form-control" id="sel1" ref="category">
+              <option>Work In Progress</option>
+              <option>Completed</option>
+              <option>On hold</option>
+            </select>
           </div>
+
           <div className="form-group">
-            <label for="completion">Completion:</label>
-            <input type="text" className="form-control" ref="completion"/>
-          </div>
-          <div className="form-group">
-            <label for="image">Description:</label>
-            <input type="text" className="form-control" ref="image"/>
+              <label for="completion">Completion:</label>
+              <p>{this.state.completion}</p>
+              <input type="range" step="5" min="0" max="100" className="form-control" ref="completion" onChange={this.changeCompletion}/>
           </div>
           <button type="submit" className="btn btn-default">Submit</button>
         </form>
-
     </Modal>
     )
   }

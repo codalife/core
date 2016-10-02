@@ -3,28 +3,11 @@ var Task = require('Task');
 var ModalNewTask = require('ModalNewTask');
 
 var TasksList = React.createClass({
-  loadTasksFromServer: function() {
-   $.ajax({
-     url: '/test',
-     dataType: 'json',
-     cache: false,
-     success: function(response) {
-       console.log(response)
-      //  var arr = JSON.parse(tasks);
-       this.setState({tasks: response});
-      console.log(this.state.tasks);
-     }.bind(this),
-     error: function(xhr, status, err) {
-       console.error(status, err.toString());
-     }.bind(this)
-   });
- },
- getInitialState: function() {
-   return {
-     tasks: [],
-     createNewTask: false
-   };
- },
+  getInitialState: function(){
+    return {
+      tasks: []
+    }
+  },
  componentDidMount: function() {
    this.loadTasksFromServer();
  },
@@ -38,15 +21,44 @@ var TasksList = React.createClass({
      createNewTask: false
    })
  },
+ loadTasksFromServer: function() {
+    var url = "";
+    if(this.props.stage == "Work in Progress"){
+      url = "/wip"
+    } else if ( this.props.stage == "On hold" ){
+      url = "/on-hold"
+    } else if ( this.props.stage == "Completed" ){
+      url = "/completed"
+    } else {
+      url = "/wip"
+    }
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      cache: false,
+      success: function(response) {
+       //  var arr = JSON.parse(tasks);
+        this.setState({tasks: response});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(status, err.toString());
+      }.bind(this)
+    });
+  },
  render: function(){
    var tasks = this.state.tasks;
    var that = this;
+
+   if( this.props.stage != this.state.stage ){
+     this.loadTasksFromServer();
+     this.state.stage = this.props.stage;
+   }
 
    var renderTasks = function(){
      return tasks.map((task) => {
        return (
          <Task
-          key={task.id}
+          key={task._id}
           taskTitle={task.taskTitle}
           desc={task.desc}
           category={task.category}
@@ -57,15 +69,11 @@ var TasksList = React.createClass({
    };
 
    var renderModal = function(){
-
-     console.log(that.state)
      if (that.state.createNewTask){
-       console.log('one step closer')
        return (
          <ModalNewTask/>
        )
      }
-
    };
 
    return (

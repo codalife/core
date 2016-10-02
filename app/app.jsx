@@ -8,9 +8,10 @@ var WorkStation = require('WorkStation');
 
 ReactDOM.render(
   <div>
-    <Router>
-      <Route path="/" component={Main}>
+    <Router history={hashHistory} >
+      <Route path="/" component={Main} >
         <Route path="workstation" component={WorkStation}></Route>
+        <Route path="tasks/:stage" component={TasksList}></Route>
         <IndexRoute component={TasksList}></IndexRoute>
       </Route>
     </Router>

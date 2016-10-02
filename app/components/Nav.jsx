@@ -2,6 +2,10 @@ var React = require('react');
 var {Link} = require('react-router');
 
 var Nav = React.createClass({
+  changeStatusOfInterest: function(e){
+    e.preventDefault();
+    this.props.seeOtherProjects(e.target.text)
+  },
   render: function(){
     return (
       <nav className="navbar navbar-inverse">
@@ -10,10 +14,9 @@ var Nav = React.createClass({
             <a className="navbar-brand" to="#">AnuarCORE</a>
           </div>
           <ul className="nav navbar-nav">
-            <li className="active"><Link to="#">Home</Link></li>
-            <li><Link to="#">Work in Progress</Link></li>
-            <li><Link to="#">Completed</Link></li>
-            <li><Link to="#">On hold</Link></li>
+            <li><a href="" onClick={this.changeStatusOfInterest}>Work in Progress</a></li>
+            <li><a href=""  onClick={this.changeStatusOfInterest}>Completed</a></li>
+            <li><a href=""  onClick={this.changeStatusOfInterest}>On hold</a></li>
           </ul>
         </div>
       </nav>

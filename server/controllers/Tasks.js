@@ -5,7 +5,25 @@ var Task = mongoose.model('task');
 module.exports = (function(){
   return {
     getCurrent: function(req, res){
-      Task.find({}, function(err, result){
+      Task.find({category: "Work In Progress"}, function(err, result){
+         if(err) {
+             console.log(err);
+           } else {
+             res.json(result);
+           }
+      });
+    },
+    getCompleted: function(req, res){
+      Task.find({category: "Completed"}, function(err, result){
+         if(err) {
+             console.log(err);
+           } else {
+             res.json(result);
+           }
+      });
+    },
+    getOnHold: function(req, res){
+      Task.find({category: "On hold"}, function(err, result){
          if(err) {
              console.log(err);
            } else {
