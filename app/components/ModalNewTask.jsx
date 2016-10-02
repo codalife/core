@@ -23,7 +23,7 @@ var ModalNewTask = React.createClass({
       taskTitle: this.refs.taskTitle.value,
       desc: this.refs.desc.value,
       category: this.refs.category.value,
-      completion: this.refs.completion.value
+      completion: this.refs.completion.value + '%'
     }, function(){
       var newTask = this.state;
 
@@ -67,7 +67,7 @@ var ModalNewTask = React.createClass({
           <div className="form-group">
               <label for="completion">Completion:</label>
               <p>{this.state.completion}</p>
-              <input type="range" step="5" min="0" max="100" className="form-control" ref="completion" onChange={this.changeCompletion}/>
+              <input type="range" step="5" min="0" max="100" className="form-control" ref="completion" value={this.state.completion} onChange={this.changeCompletion}/>
           </div>
           <button type="submit" className="btn btn-default">Submit</button>
         </form>
@@ -77,8 +77,3 @@ var ModalNewTask = React.createClass({
 });
 
 module.exports = ModalNewTask;
-
-// technologies: [String],
-// urls: [String],
-// : String,
-// priority: String
