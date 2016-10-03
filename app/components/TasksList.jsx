@@ -22,16 +22,8 @@ var TasksList = React.createClass({
    })
  },
  loadTasksFromServer: function() {
-    var url = "";
-    if(this.props.stage == "Work in Progress"){
-      url = "/wip"
-    } else if ( this.props.stage == "On hold" ){
-      url = "/on-hold"
-    } else if ( this.props.stage == "Completed" ){
-      url = "/completed"
-    } else {
-      url = "/wip"
-    }
+    var url = "/" + this.props.params.stage;
+
     $.ajax({
       url: url,
       dataType: 'json',
@@ -49,9 +41,11 @@ var TasksList = React.createClass({
    var tasks = this.state.tasks;
    var that = this;
 
-   if( this.props.stage != this.state.stage ){
+   console.log("the params is: ",this.props.params.stage )
+
+   if( this.props.params.stage != this.state.stage ){
      this.loadTasksFromServer();
-     this.state.stage = this.props.stage;
+     this.state.stage = this.props.params.stage;
    }
 
    var renderTasks = function(){

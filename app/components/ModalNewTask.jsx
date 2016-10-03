@@ -38,6 +38,9 @@ var ModalNewTask = React.createClass({
   changeCompletion: function(event){
     this.setState({completion: event.target.value});
   },
+  close: function(){
+    this.props.onHandleClick();
+  },
   render: function(){
     return (
       <Modal
@@ -69,7 +72,12 @@ var ModalNewTask = React.createClass({
               <p>{this.state.completion}</p>
               <input type="range" step="5" min="0" max="100" className="form-control" ref="completion" value={this.state.completion} onChange={this.changeCompletion}/>
           </div>
-          <button type="submit" className="btn btn-default">Submit</button>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="submit" className="btn btn-default">Submit</button>
+            <button type="button" onClick={this.close} className="btn btn-default">Cancel</button>
+          </div>
+
+
         </form>
     </Modal>
     )

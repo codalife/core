@@ -14,9 +14,9 @@ var Nav = React.createClass({
             <a className="navbar-brand" to="#">AnuarCORE</a>
           </div>
           <ul className="nav navbar-nav">
-            <li><a href="" onClick={this.changeStatusOfInterest}>Work in Progress</a></li>
-            <li><a href=""  onClick={this.changeStatusOfInterest}>Completed</a></li>
-            <li><a href=""  onClick={this.changeStatusOfInterest}>On hold</a></li>
+            <li><Link to="/tasks/wip" >Work in Progress</Link></li>
+            <li><Link to="/tasks/completed" >Completed</Link></li>
+            <li><Link to="/tasks/on-hold" >On hold</Link></li>
           </ul>
         </div>
       </nav>
