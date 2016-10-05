@@ -1,13 +1,42 @@
 var React = require('react');
 var {Modal} = require('react-bootstrap')
 
+var TechButton = require('TechButton')
+
 var ModalNewTask = React.createClass({
   getInitialState: function () {
     return {
         taskTitle: "",
         desc: "",
         category: "",
-        completion: "0"
+        completion: "0",
+        technologies: [
+          {
+            name: "NodeJS",
+            image: "node.png",
+            active: false
+          },
+          {
+            name: "React",
+            image: "react.png",
+            active: false
+          },
+          {
+            name: "Mongo",
+            image: "mongo.png",
+            active: false
+          },
+          {
+            name: "Heroku",
+            image: "heroku.png",
+            active: false
+          },
+          {
+            name: "ue4",
+            image: "ue4.jpeg",
+            active: false
+          }
+        ]
     }
   },
   getDefaultProps: function(){
@@ -41,7 +70,30 @@ var ModalNewTask = React.createClass({
   close: function(){
     this.props.onHandleClick();
   },
+  techButtonActiveToggle: function (name) {
+    var updatedTechnologies = this.state.technologies.map((technology)=>{
+      if( technology.name === name ){
+        technology.active = !technology.active
+      }
+      return technology
+    })
+
+    this.setState({
+      technologies: updatedTechnologies
+    })
+  },
   render: function(){
+    var technologies = this.state.technologies
+    var that = this
+
+    var renderButtons = function(){
+      return technologies.map( (technology) => {
+        return (
+            <TechButton handleToggle={that.techButtonActiveToggle} key={technology.name} {...technology}/>
+        )
+      } )
+    }
+
     return (
       <Modal
         aria-labelledby='modal-label'
@@ -50,16 +102,16 @@ var ModalNewTask = React.createClass({
       >
         <form className='modal-form' onSubmit={this.createNewTask}>
           <div className="form-group">
-            <label for="taskTitle">Task Title:</label>
+            <label htmlFor="taskTitle">Task Title:</label>
             <input type="text" className="form-control" ref="taskTitle"/>
           </div>
           <div className="form-group">
-            <label for="desc">Description:</label>
+            <label htmlFor="desc">Description:</label>
             <input type="text" className="form-control" ref="desc"/>
           </div>
 
           <div className="form-group">
-            <label for="sel1">Select list:</label>
+            <label htmlFor="sel1">Category:</label>
             <select className="form-control" id="sel1" ref="category">
               <option>Work In Progress</option>
               <option>Completed</option>
@@ -68,16 +120,20 @@ var ModalNewTask = React.createClass({
           </div>
 
           <div className="form-group">
-              <label for="completion">Completion:</label>
-              <p>{this.state.completion}</p>
+              <label htmlFor="completion">Completion:</label>
+              <p>{this.state.completion} %</p>
               <input type="range" step="5" min="0" max="100" className="form-control" ref="completion" value={this.state.completion} onChange={this.changeCompletion}/>
           </div>
-          <div class="btn-group" role="group" aria-label="Basic example">
+
+
+          <div className="row button-holder">
+            {renderButtons()}
+          </div>
+
+          <div className="btn-group" role="group" aria-label="Basic example">
             <button type="submit" className="btn btn-default">Submit</button>
             <button type="button" onClick={this.close} className="btn btn-default">Cancel</button>
           </div>
-
-
         </form>
     </Modal>
     )

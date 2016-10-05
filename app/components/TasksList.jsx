@@ -70,10 +70,25 @@ var TasksList = React.createClass({
      }
    };
 
+   var message = ""
+   switch (this.props.params.stage) {
+     case "wip":
+       message = "Projects I am working on now"
+       break;
+     case "completed":
+       message = "Finished projects"
+       break;
+     case "on-hold":
+       message = "Something to work on later"
+       break;
+     default:
+
+   }
+
    return (
      <div className="container-fluid box">
        <div className="container text-center">
-         <div className="col-md-10"><h1>Projects I am working on now</h1></div>
+         <div className="col-md-10"><h1>{message}</h1></div>
          <div className="col-md-2"><button type="button" className="btn btn-default" onClick={this.wantModal}>Create new</button></div>
      </div>
       {renderTasks()}

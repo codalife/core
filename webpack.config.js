@@ -17,7 +17,8 @@ module.exports = {
       ToDoList: 'app/components/ToDoList.jsx',
       InfoSet: 'app/components/InfoSet.jsx',
       Dash: 'app/components/Dash.jsx',
-      ModalNewTask: 'app/components/ModalNewTask.jsx'
+      ModalNewTask: 'app/components/ModalNewTask.jsx',
+      TechButton: 'app/components/TechButton.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

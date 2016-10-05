@@ -44,3 +44,25 @@ i{
 .modal-form {
   padding: 15px;
 }
+.tech {
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-shadow: 10px 10px 5px #888888;
+}
+.techChosen {
+  width: 55px;
+  height: 55px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-shadow: 5px 5px 2px #829fce;
+}
+.button-holder {
+    height: 70px;
+    margin-bottom: 10px
+}
+.tick {
+  height: 15px;
+  width: 15px;
+}
