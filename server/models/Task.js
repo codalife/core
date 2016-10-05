@@ -9,6 +9,7 @@ var taskSchema = new mongoose.Schema({
 	completion: String,
 	technologies: [String],
   urls: [String],
+	video: String,
   image: String,
   priority: String
 });

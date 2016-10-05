@@ -53,11 +53,7 @@ var TasksList = React.createClass({
        return (
          <Task
           key={task._id}
-          taskTitle={task.taskTitle}
-          desc={task.desc}
-          category={task.category}
-          technologies={task.technologies}
-          completion={task.completion}
+          {...task}
           />
       )})
    };

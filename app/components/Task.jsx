@@ -5,6 +5,8 @@ var Task = React.createClass({
   render: function(){
     var technologies = this.props.technologies;
 
+    console.log
+
     var renderTechnologies = function(){
       var id = 0;
       return technologies.map( (technology) => {
@@ -16,7 +18,9 @@ var Task = React.createClass({
       <div className="col-sm-6 col-md-3">
         <div className="thumbnail">
           <Link to="/">
-            <img src="http://placehold.it/320x180" alt="320x180"/>
+            <div className="embed-responsive embed-responsive-16by9">
+              <iframe className="embed-responsive-item" src={this.props.video}></iframe>
+            </div>
             <div className="progress">
               <div className="progress-bar" role="progressbar" aria-valuenow="20"
               aria-valuemin="0" aria-valuemax="100" style={{width : this.props.completion}}>

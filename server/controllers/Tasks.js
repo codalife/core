@@ -36,7 +36,8 @@ module.exports = (function(){
       var task = new Task({taskTitle: req.body.taskTitle,
                             desc: req.body.desc,
                             category: req.body.category,
-                            completion: req.body.completion});
+                            completion: req.body.completion,
+                            video: req.body.video});
 			task.save(function(err){
 				if(err){
 					console.log('saving failed');

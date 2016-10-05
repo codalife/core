@@ -52,7 +52,8 @@ var ModalNewTask = React.createClass({
       taskTitle: this.refs.taskTitle.value,
       desc: this.refs.desc.value,
       category: this.refs.category.value,
-      completion: this.refs.completion.value + '%'
+      completion: this.refs.completion.value + '%',
+      video: this.refs.video.value
     }, function(){
       var newTask = this.state;
 
@@ -120,15 +121,30 @@ var ModalNewTask = React.createClass({
           </div>
 
           <div className="form-group">
+            <label htmlFor="video">Video URL:</label>
+            <input type="text" className="form-control" ref="video"/>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="git">GitHub:</label>
+            <input type="text" className="form-control" ref="git"/>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="demo">Demo:</label>
+            <input type="text" className="form-control" ref="demo"/>
+          </div>
+
+          <div className="form-group">
               <label htmlFor="completion">Completion:</label>
               <p>{this.state.completion} %</p>
               <input type="range" step="5" min="0" max="100" className="form-control" ref="completion" value={this.state.completion} onChange={this.changeCompletion}/>
           </div>
 
-
           <div className="row button-holder">
             {renderButtons()}
           </div>
+
 
           <div className="btn-group" role="group" aria-label="Basic example">
             <button type="submit" className="btn btn-default">Submit</button>
