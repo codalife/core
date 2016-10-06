@@ -3,15 +3,23 @@ var {Link} = require('react-router');
 
 var Task = React.createClass({
   render: function(){
-    var technologies = this.props.technologies;
-
-    console.log
+    var {technologies} = this.props
+    // console.log(techs)
+    // var technologies = JSON.parse(techs)
+    //
+    // console.log(this.props)
 
     var renderTechnologies = function(){
-      var id = 0;
-      return technologies.map( (technology) => {
-        return <li key={id++}>{technology}</li>
-       })
+
+      if(technologies.length > 0){
+        var id = 0;
+        return technologies.map( (technology) => {
+          return <img key={id++} src={technology.image}/>
+         })
+      } else {
+        return <p>No info on technologies</p>
+      }
+
     };
 
     return (
@@ -49,28 +57,3 @@ var Task = React.createClass({
 });
 
 module.exports = Task;
-
-
-
-
-// var old = React.createClass({
-//   render: function(){
-//     return (
-//       <div className="col-md-4 col-xs-6 thumbnail">
-//         <Link to="/task/{this.props.key}">
-//           <img alt="100%x180" src="http://placehold.it/320x180" />
-//
-//
-//           <h3>{this.props.taskTitle}</h3>
-//         </Link>
-//         <div className="taskInfo">
-//           <h4>{this.props.category}</h4>
-//           <ul>
-//             {renderTechnologies()}
-//           </ul>
-//         </div>
-//       </div>
-//     )
-//   }
-//
-// })

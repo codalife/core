@@ -46,21 +46,58 @@ var ModalNewTask = React.createClass({
   },
   createNewTask: function(e){
     e.preventDefault();
-    console.log(this.refs.taskTitle.value);
 
-    this.setState({
+    var newTask = {
       taskTitle: this.refs.taskTitle.value,
       desc: this.refs.desc.value,
       category: this.refs.category.value,
       completion: this.refs.completion.value + '%',
-      video: this.refs.video.value
-    }, function(){
-      var newTask = this.state;
+      video: this.refs.video.value,
+      technologies: []
+    }
 
-      console.log('acquired data: ', this.state)
-      $.post( "/newTask", newTask, function(  ) {
-          console.log('expect to have a new task')
-        });
+    this.state.technologies.map( (technology) => {
+      if(technology.active == true){
+        newTask.technologies.push(technology)
+      }
+    })
+
+    $.post( "/newTask", newTask, function(  ) {
+        console.log('expect to have a new task')
+      });
+
+    this.setState({
+      taskTitle: "",
+      desc: "",
+      category: "",
+      completion: "0",
+      technologies: [
+        {
+          name: "NodeJS",
+          image: "node.png",
+          active: false
+        },
+        {
+          name: "React",
+          image: "react.png",
+          active: false
+        },
+        {
+          name: "Mongo",
+          image: "mongo.png",
+          active: false
+        },
+        {
+          name: "Heroku",
+          image: "heroku.png",
+          active: false
+        },
+        {
+          name: "ue4",
+          image: "ue4.jpeg",
+          active: false
+        }
+      ]
     });
 
     this.props.onHandleClick();

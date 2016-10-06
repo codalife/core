@@ -41,12 +41,12 @@ var TasksList = React.createClass({
    var tasks = this.state.tasks;
    var that = this;
 
-   console.log("the params is: ",this.props.params.stage )
-
    if( this.props.params.stage != this.state.stage ){
      this.loadTasksFromServer();
      this.state.stage = this.props.params.stage;
    }
+
+   console.log(tasks)
 
    var renderTasks = function(){
      return tasks.map((task) => {

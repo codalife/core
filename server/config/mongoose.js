@@ -10,6 +10,8 @@ var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
+
+
 var models_path = path.join(__dirname, './../models')
 
 fs.readdirSync(models_path).forEach(function(file) {

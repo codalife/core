@@ -7,11 +7,11 @@ var taskSchema = new mongoose.Schema({
 	desc: String,
 	category: String,
 	completion: String,
-	technologies: [String],
+	technologies: [{type: Schema.Types.ObjectId, ref: 'Tech'}],
   urls: [String],
 	video: String,
   image: String,
   priority: String
 });
 
-var Task = mongoose.model('task', taskSchema);
+var Task = mongoose.model('Task', taskSchema);
