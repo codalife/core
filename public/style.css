@@ -14,11 +14,7 @@ body{
   height: 40em;
   margin: 4px;
 }
-.thumbnail img{
-  height: 180px;
-  width: 100%;
-  display: block;
-}
+
 .footer {
     position: fixed;;
     bottom: 0;
@@ -65,4 +61,8 @@ i{
 .tick {
   height: 15px;
   width: 15px;
+}
+.thumbnail img{
+  width: 100%;
+  height: auto
 }

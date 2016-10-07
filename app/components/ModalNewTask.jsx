@@ -9,34 +9,7 @@ var ModalNewTask = React.createClass({
         taskTitle: "",
         desc: "",
         category: "",
-        completion: "0",
-        technologies: [
-          {
-            name: "NodeJS",
-            image: "node.png",
-            active: false
-          },
-          {
-            name: "React",
-            image: "react.png",
-            active: false
-          },
-          {
-            name: "Mongo",
-            image: "mongo.png",
-            active: false
-          },
-          {
-            name: "Heroku",
-            image: "heroku.png",
-            active: false
-          },
-          {
-            name: "ue4",
-            image: "ue4.jpeg",
-            active: false
-          }
-        ]
+        completion: "0"
     }
   },
   getDefaultProps: function(){
@@ -56,7 +29,7 @@ var ModalNewTask = React.createClass({
       technologies: []
     }
 
-    this.state.technologies.map( (technology) => {
+    this.props.technologies.map( (technology) => {
       if(technology.active == true){
         newTask.technologies.push(technology)
       }
@@ -65,40 +38,6 @@ var ModalNewTask = React.createClass({
     $.post( "/newTask", newTask, function(  ) {
         console.log('expect to have a new task')
       });
-
-    this.setState({
-      taskTitle: "",
-      desc: "",
-      category: "",
-      completion: "0",
-      technologies: [
-        {
-          name: "NodeJS",
-          image: "node.png",
-          active: false
-        },
-        {
-          name: "React",
-          image: "react.png",
-          active: false
-        },
-        {
-          name: "Mongo",
-          image: "mongo.png",
-          active: false
-        },
-        {
-          name: "Heroku",
-          image: "heroku.png",
-          active: false
-        },
-        {
-          name: "ue4",
-          image: "ue4.jpeg",
-          active: false
-        }
-      ]
-    });
 
     this.props.onHandleClick();
   },
@@ -109,7 +48,7 @@ var ModalNewTask = React.createClass({
     this.props.onHandleClick();
   },
   techButtonActiveToggle: function (name) {
-    var updatedTechnologies = this.state.technologies.map((technology)=>{
+    var updatedTechnologies = this.props.technologies.map((technology)=>{
       if( technology.name === name ){
         technology.active = !technology.active
       }
@@ -121,15 +60,18 @@ var ModalNewTask = React.createClass({
     })
   },
   render: function(){
-    var technologies = this.state.technologies
+    var technologies = this.props.technologies
     var that = this
 
     var renderButtons = function(){
-      return technologies.map( (technology) => {
-        return (
-            <TechButton handleToggle={that.techButtonActiveToggle} key={technology.name} {...technology}/>
-        )
-      } )
+      if (technologies){
+        return technologies.map( (technology) => {
+          return (
+              <TechButton handleToggle={that.techButtonActiveToggle} key={technology.name} {...technology}/>
+          )
+        })
+      }
+      return (<p>No technology</p>)
     }
 
     return (

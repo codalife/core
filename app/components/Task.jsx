@@ -1,20 +1,19 @@
 var React = require('react');
 var {Link} = require('react-router');
 
+var TechImage = require('TechImage')
+
 var Task = React.createClass({
   render: function(){
     var {technologies} = this.props
-    // console.log(techs)
-    // var technologies = JSON.parse(techs)
-    //
-    // console.log(this.props)
 
     var renderTechnologies = function(){
 
       if(technologies.length > 0){
-        var id = 0;
         return technologies.map( (technology) => {
-          return <img key={id++} src={technology.image}/>
+          return (
+            <TechImage key={technology.name} {...technology}/>
+          )
          })
       } else {
         return <p>No info on technologies</p>
@@ -23,7 +22,7 @@ var Task = React.createClass({
     };
 
     return (
-      <div className="col-sm-6 col-md-3">
+      <div className="col-sm-6 col-md-4">
         <div className="thumbnail">
           <Link to="/">
             <div className="embed-responsive embed-responsive-16by9">
@@ -36,19 +35,18 @@ var Task = React.createClass({
               </div>
             </div>
           </Link>
-            <p>
-              <a href="https://github.com/AnuarBJJ" className="btn btn-primary" role="button">GitHub</a>
-              <a href="/" className="btn btn-default" role="button">Demo</a>
-            </p>
+          <p>
+            <a href="https://github.com/AnuarBJJ" className="btn btn-primary" role="button">GitHub</a>
+            <a href="/" className="btn btn-default" role="button">Demo</a>
+          </p>
           <Link to="/workstation">
             <h3>{this.props.taskTitle}</h3>
           </Link>
           <div className="caption white">
             <p>{this.props.desc}</p>
-            <ul>
-              {renderTechnologies()}
-            </ul>
-
+          </div>
+          <div className="row button-holder">
+            {renderTechnologies()}
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 var tasks = require('../controllers/Tasks.js');
+var techs = require('../controllers/Techs.js')
 
 module.exports = function(app){
    app.get('/', function(req, res){
@@ -21,4 +22,7 @@ module.exports = function(app){
      tasks.newTask(req, res);
    })
 
+   app.get('/techs', function(req, res){
+     techs.getAll(req, res);
+   })
 }

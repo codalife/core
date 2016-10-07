@@ -7,7 +7,6 @@ var Tech = mongoose.model('Tech');
 module.exports = (function(){
   return {
     getCurrent: function(req, res){
-      console.log('here')
       Task.find({category: "Work In Progress"})
           .populate('technologies')
           .exec(function(err, result){
@@ -17,25 +16,28 @@ module.exports = (function(){
             }
             res.json(result)
           })
-
     },
     getCompleted: function(req, res){
-      Task.find({category: "Completed"}, function(err, result){
-         if(err) {
-             console.log(err);
-           } else {
-             res.json(result);
-           }
-      });
+      Task.find({category: "Completed"})
+        .populate('technologies')
+        .exec(function(err, result){
+          if(err){
+            console.log(err)
+            return
+          }
+          res.json(result)
+        })
     },
     getOnHold: function(req, res){
-      Task.find({category: "On hold"}, function(err, result){
-         if(err) {
-             console.log(err);
-           } else {
-             res.json(result);
-           }
-      });
+      Task.find({category: "On hold"})
+      .populate('technologies')
+      .exec(function(err, result){
+        if(err){
+          console.log(err)
+          return
+        }
+        res.json(result)
+      })
     },
     newTask: function(req, res){
       var technologies = []

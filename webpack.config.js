@@ -18,7 +18,8 @@ module.exports = {
       InfoSet: 'app/components/InfoSet.jsx',
       Dash: 'app/components/Dash.jsx',
       ModalNewTask: 'app/components/ModalNewTask.jsx',
-      TechButton: 'app/components/TechButton.jsx'
+      TechButton: 'app/components/TechButton.jsx',
+      TechImage: 'app/components/TechImage.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
