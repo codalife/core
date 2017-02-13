@@ -19,7 +19,8 @@ module.exports = {
       Dash: 'app/components/Dash.jsx',
       ModalNewTask: 'app/components/ModalNewTask.jsx',
       TechButton: 'app/components/TechButton.jsx',
-      TechImage: 'app/components/TechImage.jsx'
+      TechImage: 'app/components/TechImage.jsx',
+      OddBall: 'app/components/Oddball.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

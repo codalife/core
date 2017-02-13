@@ -2,6 +2,7 @@ var React = require('react');
 
 var Nav = require('Nav');
 var Footer = require('Footer');
+var OddBall = require('OddBall');
 
 var Main = React.createClass({
   render: function(){
@@ -9,6 +10,7 @@ var Main = React.createClass({
       <div>
         <Nav seeOtherProjects = {this.changeProjects}/>
         {this.props.children}
+        <OddBall/>
         <Footer/>
       </div>
     )
