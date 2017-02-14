@@ -1,4 +1,5 @@
 var React = require('react');
+var Modal = require('Modal')
 
 var OddBall = React.createClass({
 	componentWillMount() {
@@ -22,8 +23,17 @@ var OddBall = React.createClass({
 	},
 	render: function(){
 		return (
-		  <div className="col-md-4 col-md-offset-3" >
-				<div id="game"></div>
+		  <div>
+		  	<div className="col-md-6 col-md-offset-3">
+				<p>
+					You have 9 balls, equally big, equally heavy except for one, which is a little heavier.
+				</p>
+				<p>
+					How would you identify the heavier ball if you could use a pair of balance scales only twice?
+				</p>
+			</div>
+			<div id="game" className="col-md-4 col-md-offset-3"></div>
+			<Modal/>
 		  </div>
 		)
 	}

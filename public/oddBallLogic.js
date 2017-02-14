@@ -13,7 +13,7 @@ l__j   |____jl__j__jl_____j      l__j  l__j__jl_____j     \___/ l_____jl_____j  
 document.removeEventListener('click', guess)
 
 // ----------------------------------- SVG and BACKGROUND --------------------------------------------
-var height = 500
+var height = 430
 var width = 800
 
 var svg = d3.select('#game')
@@ -109,12 +109,9 @@ var svgBalls = svg
 			.enter()
 			.append('circle')
 			.attr('r', 15)
-			// make all balls the same colors after testing -----!!!!!!!
+			// .attr('x', function(d,i){return i*20+200})
 			.attr('fill', 'url(#metal)')
 			.attr('id', d=>d.id)
-			// 	function(d, i){
-			// 	return d['odd'] ? 'yellow' :
-			// })
 
 svgBalls
 		    .call(d3.drag()
@@ -131,7 +128,7 @@ var shiftRight = 180;
 
 var simulation = d3.forceSimulation(balls)
 			.force("collide", d3.forceCollide().radius(16))
-			.force('y', d3.forceY(400).strength(0.555))
+			.force('y', d3.forceY(400).strength(0.75))
 
 var ticked = function() {
      svgBalls
@@ -171,9 +168,6 @@ function dragended(d, i) {
 		var update = svg.selectAll('circle')
 			.data(balls, d => d.id)
 			.attr('fill', 'url(#metal)')
-				// function(d, i){
-			// 	return d['odd'] ? 'yellow' : 'url(#metal)'
-			// })
 
 		update
 			.exit()
@@ -316,19 +310,21 @@ function useScales(numOfBallsOnLeft, numOfBallsOnRight){
 	}
 
 	if(parseInt(message[1]['text']) === 2){
-		setTimeout(function(){ alert("Toss non-odd balls in the bin."); }, 1000);
+		setTimeout(function(){
+			svg.selectAll('rect')
+				.append('rect')
+				.attr('')
 
-		// document.getElementById('step2').style.visibility = 'visible'
-		// document.getElementById('use').style.visibility = 'hidden'
+		}, 1000);
 
 		message[7]['text'] = numOfBallsOnLeft
 		message[8]['text'] = numOfBallsOnRight
 	}
 	if(parseInt(message[1]['text']) === 1){
-		setTimeout(function(){ alert("Toss non-odd balls in the bin."); }, 1000);
-
-		// document.getElementById('step2').style.visibility = 'hidden'
-		// document.getElementById('use').style.visibility = 'hidden'
+		setTimeout(function(){
+			// alert("Toss non-odd balls in the bin.");
+			$('#myModal').modal('show');
+		}, 1000);
 
 		message[9]['text'] = numOfBallsOnLeft
 		message[10]['text']  = numOfBallsOnRight
@@ -337,10 +333,10 @@ function useScales(numOfBallsOnLeft, numOfBallsOnRight){
 	message[1]['text'] = parseInt(message[1]['text'])-1;
 
 
-	if(parseInt(message[1]['text']) < 1){
-		message[1]['text'] = "over the limit"
-		setTimeout(function(){ alert("Game over");}, 1000);
-	}
+	// if(parseInt(message[1]['text']) < 1){
+	// 	message[1]['text'] = "over the limit"
+	// 	setTimeout(function(){ alert("Game over");}, 1000);
+	// }
 	var update = svg.selectAll('text')
 			.data(message)
 			.text(d=>d.text)
@@ -392,9 +388,6 @@ drawScales()
 //---------------------------------STEP 2-----------------------------------------------
 function readyForStepTwo(){
 
-	// document.getElementById('use').style.visibility = 'visible'
-	// document.getElementById('step2').style.visibility = 'hidden'
-
 	svg.selectAll('circle')
 		.filter(d => d.x > 100)
 		.attr('cx', function(d){
@@ -415,6 +408,9 @@ function pick(){
 
 function guess(e) {
 	    e = e || window.event;
+
+	    d3.select('#game').classed('target', true)
+
 	    var target = e.target || e.srcElement
 		if(target){
 			console.log(target.tagName)
@@ -431,27 +427,20 @@ function guess(e) {
 var buttons = [
 	{name: "Use Scales", x: 60, y: 460, width: 100, height: 50, fun: useScales},
 	{name: "Next step", x: 180, y: 460, width: 100, height: 50, fun: readyForStepTwo},
-	{name: "Pick the odd ball", x: 300, y: 460, width: 150, height: 50, fun: pick},
-	// {name: "Goto the next step", x: 420, y: 440, width: 100, height: 50}
+	{name: "Pick the odd ball", x: 300, y: 460, width: 150, height: 50, fun: pick}
 ]
 
-var buttonsSVG = svg.selectAll('g')
+var buttonsSVG = d3.select('#game').selectAll('a')
 	.data(buttons, function(d, i){
 		return d ? d.name : this
 	})
 	.enter()
-	.append('g')
-		// .attr('x', d=>d.x)
-		// .attr('y', d=>d.y)
-		// .attr('width', d=>d.width)
-		// .attr('height', d=>d.height)
-		// .attr('fill', '#e4685d')
-		.call(drawButton)
+	.append('a')
+	.attr('type', 'button')
+	.attr('class', 'btn btn-primary btn-lg')
+	.html(d=>d.name)
 		.on('click', function(d){
 			d.fun()
-			// var self = d3.select(this)
-			// self.fun()
-			// console.log(d3.select(this))
 		})
 
 function drawButton(selection) {
@@ -460,21 +449,13 @@ function drawButton(selection) {
 		// console.log(d)
 		  var g = d3.select(this)
 		      .attr('id', 'd3-button' + i)
-		      // .attr('transform', 'translate(' + d.x + ',' + d.y + ')');
 
-
-		  // var defs = g.append('defs');
-		  // var bbox = text.node().getBBox();
 		  var rect = g.append('rect')
 		      .attr("x", d.x - 20)
 		      .attr("y", d.y - 30)
 		      .attr("width", d.width)
 		      .attr("height", d.height)
-		      // .attr('rx', radius)
-		      // .attr('ry', radius)
-		      // .on('mouseover', activate)
-		      // .on('mouseout', deactivate)
-		      // .on('click', toggle)
+
    		  var text = g.append('text')
 		  		.attr('x', d.x)
 		  		.attr('y', d.y)
@@ -483,6 +464,5 @@ function drawButton(selection) {
 
 	});
 }
-
 //-----------------------------------------------------------------------------------------------
 // -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*

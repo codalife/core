@@ -1,7 +1,9 @@
 body{
     background-color: #D36135;
 }
-
+circle{
+  cursor: move;
+}
 .taskName {
   color: #21295C;
   opacity: 0.5;
@@ -69,44 +71,53 @@ i{
   border: white 1px solid;
 }
 text{
+  font-family: open_24_display;
+}
+#step2{
+  visibility: hidden;
+}
+#game{
+  position: relative;
+  cursor: pointer;
+}
+#game a{
+  margin: 0 2px;
+}
+.target{
+  cursor: cell;
+}
 
-        font-family: open_24_display;
-        /*font-size: 30px*/
-      }
-      #step2{
-        visibility: hidden;
-      }
-      .myButton {
-        -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
-        -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
-        box-shadow:inset 0px 39px 0px -24px #e67a73;
-        background-color:#e4685d;
-        -moz-border-radius:4px;
-        -webkit-border-radius:4px;
-        border-radius:4px;
-        border:1px solid #ffffff;
-        display:inline-block;
-        cursor:pointer;
-        color:#ffffff;
-        font-family:Arial;
-        font-size:15px;
-        padding:6px 15px;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #b23e35;
-      }
-      .myButton:hover {
-        background-color:#eb675e;
-      }
-      .myButton:active {
-        position:relative;
-        top:1px;
-      }
+.myButton {
+  -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+  -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+  box-shadow:inset 0px 39px 0px -24px #e67a73;
+  background-color:#e4685d;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+  border:1px solid #ffffff;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  padding:6px 15px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #b23e35;
+}
+.myButton:hover {
+  background-color:#eb675e;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
 
-      @font-face {
-          font-family: famirids;
-          src: url(famirids/Famirids..ttf);
-      }
-      @font-face {
-          font-family: open_24_display;
-          src: url(open_24_display/Open24DisplaySt.ttf);
-      }
+@font-face {
+    font-family: famirids;
+    src: url(famirids/Famirids..ttf);
+}
+@font-face {
+    font-family: open_24_display;
+    src: url(open_24_display/Open24DisplaySt.ttf);
+}

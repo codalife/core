@@ -20,7 +20,8 @@ module.exports = {
       ModalNewTask: 'app/components/ModalNewTask.jsx',
       TechButton: 'app/components/TechButton.jsx',
       TechImage: 'app/components/TechImage.jsx',
-      OddBall: 'app/components/Oddball.jsx'
+      OddBall: 'app/components/Oddball.jsx',
+      Modal: 'app/components/Modal.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
