@@ -102,7 +102,7 @@ var TasksList = React.createClass({
      <div className="container-fluid box">
        <div className="container text-center">
          <div className="col-md-10"><h1>{message}</h1></div>
-         <div className="col-md-2"><button type="button" className="btn btn-default" onClick={this.wantModal}>Create new</button></div>
+
      </div>
       {renderTasks()}
       <ModalNewTask showModal={this.state.createNewTask} onHandleClick={this.dontWantModal} technologies={technologies}/>

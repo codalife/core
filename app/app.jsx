@@ -5,6 +5,7 @@ var React = require('react'),
 var Main = require('Main');
 var TasksList = require('TasksList');
 var WorkStation = require('WorkStation');
+var OddBall = require('OddBall');
 
 ReactDOM.render(
   <div>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Route path="/" component={Main} >
         <Route path="workstation" component={WorkStation}></Route>
         <Route path="tasks/:stage" component={TasksList}></Route>
+        <Route path="game" component={OddBall}></Route>
         <IndexRoute component={TasksList}></IndexRoute>
       </Route>
     </Router>

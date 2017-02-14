@@ -23,10 +23,6 @@ var OddBall = React.createClass({
 	render: function(){
 		return (
 		  <div className="col-md-4 col-md-offset-3" >
-
-		  		<a onClick="useScales()" id='use' className="myButton">Use scales</a>
-				<a onClick="readyForStepTwo()" id='step2' className="myButton">Step 2</a>
-				<a onClick="pick()" className="myButton">Ready to pick</a>
 				<div id="game"></div>
 		  </div>
 		)

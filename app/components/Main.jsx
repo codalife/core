@@ -5,12 +5,14 @@ var Footer = require('Footer');
 var OddBall = require('OddBall');
 
 var Main = React.createClass({
+  componentWillMoiunt(){
+    document.getElementById('startGame').click()
+  },
   render: function(){
     return (
       <div>
         <Nav seeOtherProjects = {this.changeProjects}/>
         {this.props.children}
-        <OddBall/>
         <Footer/>
       </div>
     )

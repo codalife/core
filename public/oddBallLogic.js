@@ -29,13 +29,6 @@ var canvas = svg.append('rect')
 // -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 //---------------------------------IMAGES-----------------------------------------------
-// var desk =   svg
-//   .append('image')
-//   .attr('xlink:href','desk.jpeg')
-//   .attr('height', '450')
-//   .attr('width', '800')
-//   .attr('x', -150)
-//   .attr('y', 100)
 
 var binCoordinates = {x: 715, y: 340}
 
@@ -325,8 +318,8 @@ function useScales(numOfBallsOnLeft, numOfBallsOnRight){
 	if(parseInt(message[1]['text']) === 2){
 		setTimeout(function(){ alert("Toss non-odd balls in the bin."); }, 1000);
 
-		document.getElementById('step2').style.visibility = 'visible'
-		document.getElementById('use').style.visibility = 'hidden'
+		// document.getElementById('step2').style.visibility = 'visible'
+		// document.getElementById('use').style.visibility = 'hidden'
 
 		message[7]['text'] = numOfBallsOnLeft
 		message[8]['text'] = numOfBallsOnRight
@@ -334,8 +327,8 @@ function useScales(numOfBallsOnLeft, numOfBallsOnRight){
 	if(parseInt(message[1]['text']) === 1){
 		setTimeout(function(){ alert("Toss non-odd balls in the bin."); }, 1000);
 
-		document.getElementById('step2').style.visibility = 'hidden'
-		document.getElementById('use').style.visibility = 'hidden'
+		// document.getElementById('step2').style.visibility = 'hidden'
+		// document.getElementById('use').style.visibility = 'hidden'
 
 		message[9]['text'] = numOfBallsOnLeft
 		message[10]['text']  = numOfBallsOnRight
@@ -351,27 +344,6 @@ function useScales(numOfBallsOnLeft, numOfBallsOnRight){
 	var update = svg.selectAll('text')
 			.data(message)
 			.text(d=>d.text)
-
-	// var enter = update
-	// 	.enter()
-	// 	.append('text')
-	// 	.text(d => d.text)
-	// 	.attr('x', d => d.x)
-	// 	.attr('y', d => d.y)
-	// 	.attr('font-size', d => d.size)
-	// 	.attr('fill', d => d.fill)
-
-	// console.log(enter)
-
-	// update.exit().remove()
-
-	// update.merge(enter)
-	// 	.text(function(d){
-	// 		console.log(d);
-	// 		return d.text;
-	// 	})
-
-	// update.enter().text(function(d){return d.text;})
 }
 // ----------------------------------------------------------------------------------------------
 // -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -420,8 +392,8 @@ drawScales()
 //---------------------------------STEP 2-----------------------------------------------
 function readyForStepTwo(){
 
-	document.getElementById('use').style.visibility = 'visible'
-	document.getElementById('step2').style.visibility = 'hidden'
+	// document.getElementById('use').style.visibility = 'visible'
+	// document.getElementById('step2').style.visibility = 'hidden'
 
 	svg.selectAll('circle')
 		.filter(d => d.x > 100)
@@ -455,3 +427,62 @@ function guess(e) {
 			alert('It was supposed to be 100% probability')
 		}
 }
+//---------------------------------BUTTONS-----------------------------------------------
+var buttons = [
+	{name: "Use Scales", x: 60, y: 460, width: 100, height: 50, fun: useScales},
+	{name: "Next step", x: 180, y: 460, width: 100, height: 50, fun: readyForStepTwo},
+	{name: "Pick the odd ball", x: 300, y: 460, width: 150, height: 50, fun: pick},
+	// {name: "Goto the next step", x: 420, y: 440, width: 100, height: 50}
+]
+
+var buttonsSVG = svg.selectAll('g')
+	.data(buttons, function(d, i){
+		return d ? d.name : this
+	})
+	.enter()
+	.append('g')
+		// .attr('x', d=>d.x)
+		// .attr('y', d=>d.y)
+		// .attr('width', d=>d.width)
+		// .attr('height', d=>d.height)
+		// .attr('fill', '#e4685d')
+		.call(drawButton)
+		.on('click', function(d){
+			d.fun()
+			// var self = d3.select(this)
+			// self.fun()
+			// console.log(d3.select(this))
+		})
+
+function drawButton(selection) {
+
+	selection.each(function(d, i) {
+		// console.log(d)
+		  var g = d3.select(this)
+		      .attr('id', 'd3-button' + i)
+		      // .attr('transform', 'translate(' + d.x + ',' + d.y + ')');
+
+
+		  // var defs = g.append('defs');
+		  // var bbox = text.node().getBBox();
+		  var rect = g.append('rect')
+		      .attr("x", d.x - 20)
+		      .attr("y", d.y - 30)
+		      .attr("width", d.width)
+		      .attr("height", d.height)
+		      // .attr('rx', radius)
+		      // .attr('ry', radius)
+		      // .on('mouseover', activate)
+		      // .on('mouseout', deactivate)
+		      // .on('click', toggle)
+   		  var text = g.append('text')
+		  		.attr('x', d.x)
+		  		.attr('y', d.y)
+		  		.text(d.name)
+		  		.attr('fill', 'white')
+
+	});
+}
+
+//-----------------------------------------------------------------------------------------------
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
