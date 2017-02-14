@@ -1,6 +1,6 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    {Route, Router, IndexRoute, hashHistory} = require('react-router');
+    {Route, Router, IndexRoute, hashHistory, Redirect} = require('react-router');
 
 var Main = require('Main');
 var TasksList = require('TasksList');
@@ -14,7 +14,7 @@ ReactDOM.render(
         <Route path="workstation" component={WorkStation}></Route>
         <Route path="tasks/:stage" component={TasksList}></Route>
         <Route path="game" component={OddBall}></Route>
-        <IndexRoute component={TasksList}></IndexRoute>
+        <IndexRoute component={OddBall}></IndexRoute>
       </Route>
     </Router>
   </div>
