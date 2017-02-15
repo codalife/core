@@ -76,17 +76,24 @@ text{
 #step2{
   visibility: hidden;
 }
+#gameHolder{
+  overflow: scroll;
+  margin-bottom: 140px;
+  /*position: relative;*/
+}
 #game{
-  position: relative;
   cursor: pointer;
 }
-#game a{
-  margin: 0 2px;
+#buttons a{
+  margin: 0 20px;
 }
 .target{
   cursor: cell;
 }
-
+.assignment{
+  color: #FFFFF0;
+  text-align: center;
+}
 .myButton {
   -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
   -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;

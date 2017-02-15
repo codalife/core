@@ -23,16 +23,17 @@ var OddBall = React.createClass({
 	},
 	render: function(){
 		return (
-		  <div>
-		  	<div className="col-md-6 col-md-offset-3">
-				<p>
-					You have 9 balls, equally big, equally heavy except for one, which is a little heavier.
-				</p>
-				<p>
-					How would you identify the heavier ball if you could use a pair of balance scales only twice?
-				</p>
+		  <div id="gameHolder">
+		  	<div className="col-md-6 col-md-offset-3 assignment">
+				<h2>
+					There are 8 balls, same weight, and 1 heavier.
+				</h2>
+				<h2>
+					Find the odd ball using the scales only twice.
+				</h2>
 			</div>
-			<div id="game" className="col-md-4 col-md-offset-3"></div>
+			<div id="game" className="col-md-6 col-md-offset-3"></div>
+			<div id="buttons" className="col-md-6 col-md-offset-3 assignment"></div>
 			<Modal/>
 		  </div>
 		)

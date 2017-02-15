@@ -430,7 +430,7 @@ var buttons = [
 	{name: "Pick the odd ball", x: 300, y: 460, width: 150, height: 50, fun: pick}
 ]
 
-var buttonsSVG = d3.select('#game').selectAll('a')
+var buttonsSVG = d3.select('#buttons').selectAll('a')
 	.data(buttons, function(d, i){
 		return d ? d.name : this
 	})
