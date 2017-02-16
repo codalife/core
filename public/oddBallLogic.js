@@ -69,7 +69,7 @@ var message = [{text:"SCALES USAGES LEFT:", x: 50, y: 50, size: 30, fill: "#cc00
 				{text: "2", x: 320, y: 50, size: 35, fill: "#cc0000"},				  //1
 				{text: 'left side', x: 300, y: 90, size: 25, fill: 'black'},          //2
 				{text: 'right side', x: 450, y: 90, size: 25, fill: 'black'},         //3
-				{text: 'sorted out', x: 600, y: 90, size: 25, fill: 'black'},         //4
+				{text: '', x: 600, y: 90, size: 25, fill: 'black'},         //4
 				{text: 'first usage stats: ', x: 80, y: 120, size: 25, fill: 'black'},//5
 				{text: 'second usage stats: ', x: 80, y: 170, size: 25, fill: 'black'}, //6
 				{text: 0, x: 320, y: 120, size: 25, fill: 'black'}, //7
