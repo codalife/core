@@ -72,10 +72,10 @@ var message = [{text:"SCALES USAGES LEFT:", x: 50, y: 50, size: 30, fill: "#cc00
 				{text: '', x: 600, y: 90, size: 25, fill: 'black'},         //4
 				{text: 'first usage stats: ', x: 80, y: 120, size: 25, fill: 'black'},//5
 				{text: 'second usage stats: ', x: 80, y: 170, size: 25, fill: 'black'}, //6
-				{text: 0, x: 320, y: 120, size: 25, fill: 'black'}, //7
-				{text: 0, x: 470, y: 120, size: 25, fill: 'black'}, //8
-				{text: 0, x: 320, y: 170, size: 25, fill: 'black'}, //9
-				{text: 0, x: 470, y: 170, size: 25, fill: 'black'}, //10
+				{text: 0, x: 320, y: 120, size: 25, fill: 'black'}, //7  balls on left first go
+				{text: 0, x: 470, y: 120, size: 25, fill: 'black'}, //8  balls on right first go
+				{text: 0, x: 320, y: 170, size: 25, fill: 'black'}, //9  balls on left second go
+				{text: 0, x: 470, y: 170, size: 25, fill: 'black'}, //10  balls on right second go
 				{text: 'second usage stats: ', x: 80, y: 170, size: 25, fill: 'black'},  //11
 				{text: 'second usage stats: ', x: 80, y: 170, size: 25, fill: 'black'},  //12
 				]
@@ -311,9 +311,7 @@ function useScales(numOfBallsOnLeft, numOfBallsOnRight){
 
 	if(parseInt(message[1]['text']) === 2){
 		setTimeout(function(){
-			svg.selectAll('rect')
-				.append('rect')
-				.attr('')
+			document.getElementById('instruction').click()
 
 		}, 1000);
 
@@ -323,7 +321,7 @@ function useScales(numOfBallsOnLeft, numOfBallsOnRight){
 	if(parseInt(message[1]['text']) === 1){
 		setTimeout(function(){
 			// alert("Toss non-odd balls in the bin.");
-			$('#myModal').modal('show');
+
 		}, 1000);
 
 		message[9]['text'] = numOfBallsOnLeft
@@ -418,9 +416,15 @@ function guess(e) {
 
 		var theChosenOne = document.getElementById(odd);
 		if(theChosenOne === target){
-			alert('Lucky you')
+			if(parseInt(message[7].text) === 3 && parseInt(message[8].text) === 3
+				&& parseInt(message[9].text) === 1 && parseInt(message[10].text) === 1 ){
+				document.getElementById('rightSolution').click()
+				// alert("That's the right solution! You are amazing!")
+			} else {
+				alert('Lucky you')
+			}
 		} else if(target.tagName === 'circle') {
-			alert('It was supposed to be 100% probability')
+			alert('Try again. You can do it.')
 		}
 }
 //---------------------------------BUTTONS-----------------------------------------------

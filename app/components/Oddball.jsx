@@ -1,7 +1,8 @@
 var React = require('react');
-var Modal = require('Modal')
+var GameModalInstrusction = require('GameModalInstrusction');
+var ModalRightSol = require('ModalRightSol')
 
-var OddBall = React.createClass({
+class OddBall extends React.Component{
 	componentWillMount() {
 
 		const scriptD3 = document.createElement("script");
@@ -20,8 +21,8 @@ var OddBall = React.createClass({
 	      if (rs && rs != 'complete' && rs != 'loaded') return;
 	      try { document.body.appendChild(scriptGame); } catch (e) {}
 	    };
-	},
-	render: function(){
+	}
+	render(){
 		return (
 		  <div id="gameHolder">
 		  	<div className="col-md-6 col-md-offset-3 assignment">
@@ -32,12 +33,17 @@ var OddBall = React.createClass({
 					Find the odd ball using the scales only twice.
 				</h2>
 			</div>
+			<GameModalInstrusction ref='GameModalInstrusction'/>
+			<ModalRightSol ref="ModalRightSol"/>
+			<button className='hidden' id='instruction' onClick={() => this.refs.GameModalInstrusction.openModal()}>Open Modal</button>
+			<button className='hidden' id='rightSolution' onClick={() => this.refs.ModalRightSol.openModal()}>Open Modal</button>
 			<div id="game" className="col-md-6 col-md-offset-3"></div>
 			<div id="buttons" className="col-md-6 col-md-offset-3 assignment"></div>
-			<Modal/>
+
+
 		  </div>
 		)
 	}
-});
+};
 
 module.exports = OddBall;

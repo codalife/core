@@ -21,7 +21,9 @@ module.exports = {
       TechButton: 'app/components/TechButton.jsx',
       TechImage: 'app/components/TechImage.jsx',
       OddBall: 'app/components/Oddball.jsx',
-      Modal: 'app/components/Modal.jsx'
+      Modal: 'app/components/Modal.jsx',
+      GameModalInstrusction: 'app/components/GameModalInstrusction.jsx',
+      ModalRightSol: 'app/components/ModalRightSol.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

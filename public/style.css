@@ -73,6 +73,9 @@ i{
 text{
   font-family: open_24_display;
 }
+.hidden{
+  visibility: hidden;
+}
 #step2{
   visibility: hidden;
 }
