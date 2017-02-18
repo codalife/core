@@ -23,7 +23,9 @@ module.exports = {
       OddBall: 'app/components/Oddball.jsx',
       Modal: 'app/components/Modal.jsx',
       GameModalInstrusction: 'app/components/GameModalInstrusction.jsx',
-      ModalRightSol: 'app/components/ModalRightSol.jsx'
+      ModalRightSol: 'app/components/ModalRightSol.jsx',
+      LuckModal: 'app/components/LuckModal.jsx',
+      ModalWrong: 'app/components/ModalWrong.jsx',
     },
     extensions: ['', '.js', '.jsx']
   },

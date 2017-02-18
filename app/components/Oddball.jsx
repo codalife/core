@@ -1,6 +1,8 @@
 var React = require('react');
 var GameModalInstrusction = require('GameModalInstrusction');
-var ModalRightSol = require('ModalRightSol')
+var ModalRightSol = require('ModalRightSol');
+var LuckModal = require('LuckModal')
+var ModalWrong = require('ModalWrong')
 
 class OddBall extends React.Component{
 	componentWillMount() {
@@ -35,8 +37,12 @@ class OddBall extends React.Component{
 			</div>
 			<GameModalInstrusction ref='GameModalInstrusction'/>
 			<ModalRightSol ref="ModalRightSol"/>
+			<LuckModal ref="LuckModal"/>
+			<ModalWrong ref="ModalWrong"/>
 			<button className='hidden' id='instruction' onClick={() => this.refs.GameModalInstrusction.openModal()}>Open Modal</button>
 			<button className='hidden' id='rightSolution' onClick={() => this.refs.ModalRightSol.openModal()}>Open Modal</button>
+			<button className='hidden' id='lucky' onClick={() => this.refs.LuckModal.openModal()}>Open Modal</button>
+			<button className='hidden' id='wrong' onClick={() => this.refs.ModalWrong.openModal()}>Open Modal</button>
 			<div id="game" className="col-md-6 col-md-offset-3"></div>
 			<div id="buttons" className="col-md-6 col-md-offset-3 assignment"></div>
 

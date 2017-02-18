@@ -421,10 +421,12 @@ function guess(e) {
 				document.getElementById('rightSolution').click()
 				// alert("That's the right solution! You are amazing!")
 			} else {
-				alert('Lucky you')
+				// alert('Lucky you')
+				document.getElementById('lucky').click()
 			}
 		} else if(target.tagName === 'circle') {
-			alert('Try again. You can do it.')
+			document.getElementById('wrong').click()
+			// alert('Try again. You can do it.')
 		}
 }
 //---------------------------------BUTTONS-----------------------------------------------
