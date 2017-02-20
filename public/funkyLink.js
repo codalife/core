@@ -1,8 +1,6 @@
 var mainLink = document.getElementById("startGame")
 var innerHTML = mainLink.innerHTML
 
-console.log(mainLink)
-
 mainLink.addEventListener("mouseenter", function( event ) {
 
 	var i = 0

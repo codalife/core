@@ -4,7 +4,7 @@ var Modal = React.createClass({
   render: function(){
     return (
       <div>
-        <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div className="modal fade" id={this.props.name} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -27,4 +27,3 @@ var Modal = React.createClass({
 });
 
 module.exports = Modal;
-
