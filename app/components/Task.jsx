@@ -5,6 +5,13 @@ var TechImage = require('TechImage');
 var Modal = require('Modal');
 
 var Task = React.createClass({
+  openModal: function(){
+    if(this.props.pic === "images/pmg.png"){
+      document.getElementById('pmg').click()
+    } else if(this.props.pic === "images/arsenal.png"){
+      document.getElementById('arsenal').click()
+    }
+  },
   render: function(){
     var {technologies} = this.props
 
@@ -12,13 +19,13 @@ var Task = React.createClass({
 
     if( this.props.video){
       imageOrIframe = (
-        <div className="embed-responsive embed-responsive-16by9">
-          <iframe className="embed-responsive-item" src={this.props.video}></iframe>
+        <div onClick={this.openModal()} className="embed-responsive embed-responsive-16by9">
+          <iframe className="embed-responsive-item"  src={this.props.video}></iframe>
         </div>
         )
     } else {
       imageOrIframe = (
-          <img src={this.props.pic}/>
+          <img onClick={this.openModal} src={this.props.pic}/>
         )
     }
 
@@ -36,9 +43,9 @@ var Task = React.createClass({
     };
 
     return (
-      <div className="col-sm-12 col-md-4">
+      <div className="col-xs-12 col-sm-4">
         <div className="thumbnail">
-          <Link to="/">
+
             {imageOrIframe}
             <div className="progress">
               <div className="progress-bar" role="progressbar" aria-valuenow="20"
@@ -46,7 +53,7 @@ var Task = React.createClass({
                 {this.props.completion}
               </div>
             </div>
-          </Link>
+
           <p>
             <a href="https://github.com/AnuarBJJ" className="btn btn-primary" role="button">GitHub</a>
             <a href="/" className="btn btn-default" role="button">Demo</a>
@@ -61,7 +68,6 @@ var Task = React.createClass({
             {renderTechnologies()}
           </div>
         </div>
-        <Modal />
       </div>
     )
   }

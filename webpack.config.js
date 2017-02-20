@@ -26,6 +26,8 @@ module.exports = {
       ModalRightSol: 'app/components/ModalRightSol.jsx',
       LuckModal: 'app/components/LuckModal.jsx',
       ModalWrong: 'app/components/ModalWrong.jsx',
+      PMGModal: 'app/components/PMGModal.jsx',
+      ArsenalModal: 'app/components/ArsenalModal.jsx',
     },
     extensions: ['', '.js', '.jsx']
   },
