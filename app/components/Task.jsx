@@ -43,7 +43,7 @@ var Task = React.createClass({
     };
 
     return (
-      <div className="col-xs-12 col-sm-4">
+      <div className="col-sm-12 col-sm-4">
         <div className="thumbnail">
 
             {imageOrIframe}
