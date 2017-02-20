@@ -1,5 +1,5 @@
 body{
-    background-color: #D36135;
+    background-color: white;
 }
 circle{
   cursor: move;
@@ -13,7 +13,7 @@ circle{
 .thumbnail{
   background-color: #19323C;
   text-align: center;
-  height: 40em;
+  overflow:auto;
   margin: 4px;
 }
 
@@ -49,6 +49,7 @@ i{
   background-repeat: no-repeat;
   box-shadow: 10px 10px 5px #888888;
 }
+
 .techChosen {
   width: 55px;
   height: 55px;
@@ -65,7 +66,8 @@ i{
   width: 15px;
 }
 .thumbnail img{
-  width: 100%;
+  width: 80%;
+  margin: 15%;
   height: auto;
   border-radius: 50%;
   border: white 1px solid;

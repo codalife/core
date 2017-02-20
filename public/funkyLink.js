@@ -14,7 +14,6 @@ mainLink.addEventListener("mouseenter", function( event ) {
 		} else {
 			text = innerHTML.substring(0, i) + innerHTML.charAt(i).toUpperCase() + innerHTML.substring(i+1, innerHTML.length)
 		}
-		console.log(text)
 		document.getElementById("startGame").innerHTML = text;
 
 		i ++;
