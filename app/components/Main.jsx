@@ -2,7 +2,6 @@ var React = require('react');
 
 var Nav = require('Nav');
 var Footer = require('Footer');
-var OddBall = require('OddBall');
 
 var Main = React.createClass({
   componentWillMoiunt(){
