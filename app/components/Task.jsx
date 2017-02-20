@@ -36,7 +36,7 @@ var Task = React.createClass({
     };
 
     return (
-      <div className="col-sm-6 col-md-4">
+      <div className="col-sm-12 col-md-4">
         <div className="thumbnail">
           <Link to="/">
             {imageOrIframe}
@@ -61,6 +61,7 @@ var Task = React.createClass({
             {renderTechnologies()}
           </div>
         </div>
+        <Modal />
       </div>
     )
   }
