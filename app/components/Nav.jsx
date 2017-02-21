@@ -11,7 +11,7 @@ var Nav = React.createClass({
       <nav className="navbar">
         <div className="container-fluid">
           <div className="navbar-header">
-              <Link className="navbar-brand" id="startGame" to="/game">anuarCORE</Link>
+              <Link className="navbar-brand" id="startGame" to="/game">anuar_CORE</Link>
           </div>
           <ul className="nav navbar-nav navbar-right">
             <li><Link to="/tasks/wip" >work in progress</Link></li>

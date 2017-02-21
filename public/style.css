@@ -9,10 +9,15 @@ circle{
   cursor: move;
 }
 .navbar-brand{
-  font-size: 22px;
+  font-size: 29px;
+  color: black;
+  font-family: 'Comfortaa', cursive;
 }
 .navbar-right{
   padding-right: 10%;
+}
+.navbar-right a{
+  color: #0000ff;
 }
 .fa{
   color: #aaaaaa;
