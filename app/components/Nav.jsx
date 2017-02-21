@@ -16,7 +16,7 @@ var Nav = React.createClass({
           <ul className="nav navbar-nav navbar-right">
             <li><Link to="/tasks/wip" >work in progress</Link></li>
             <li><Link to="/tasks/completed" >completed</Link></li>
-            <li><Link to="/tasks/on-hold" >on hold</Link></li>
+            <li><Link to="/tasks/on-hold">on hold</Link></li>
           </ul>
         </div>
       </nav>

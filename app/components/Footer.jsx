@@ -5,7 +5,7 @@ var Footer = React.createClass({
     return (
       <footer className="footer">
 
-          <div>
+          <div className='navbar-right'>
             <a href="https://GitHub.com/AnuarBJJ">
               <i className="fa fa-github-square" aria-hidden="true"> </i>&nbsp; GitHub
             </a>
