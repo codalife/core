@@ -2,7 +2,7 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 body{
-    background-color:   #aaaaaa;
+    background-color:   white;
     font-size: 17px;
 }
 circle{
@@ -10,6 +10,9 @@ circle{
 }
 .navbar-brand{
   font-size: 22px;
+}
+.navbar-right{
+  padding-right: 10%;
 }
 .fa{
   color: #aaaaaa;
@@ -151,4 +154,10 @@ text{
 @font-face {
     font-family: open_24_display;
     src: url(open_24_display/Open24DisplaySt.ttf);
+}
+
+@media screen and (max-width: 1335px) {
+    body {
+        font-size: 25px;
+    }
 }
