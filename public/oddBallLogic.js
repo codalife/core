@@ -20,11 +20,39 @@ var svg = d3.select('#game')
 			.append('svg')
 			.attr('width', width)
 			.attr('height', height)
+		   // .attr("preserveAspectRatio", "xMinYMin meet")
+		   // .attr("viewBox", "0 0 " + width + " " + height)
+		   .call(responsivefy)
 
 var canvas = svg.append('rect')
 			.attr('width', '100%')
 			.attr('height', '100%')
 			.attr('fill', '#4e83ab')
+// ----------------------------------------------------------------------------------------------
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+//---------------------------------RESPONSIVEFY-----------------------------------------------
+function responsivefy(svg){
+	var container = d3.select(svg.node().parentNode),
+		width = parseInt(svg.style("width")),
+		height = parseInt(svg.style("height")),
+		aspect = width/height;
+
+	svg.attr("viewBox", "0 0 " + width + " " + height)
+		.attr("preserveAspectRatio", "xMinYMin")
+		.call(resize);
+
+	d3.select(window).on("resize." + container.attr("id"), resize)
+
+	function resize(){
+		var targetWidth = parseInt(container.style("width"));
+		svg.attr("width", targetWidth);
+		svg.attr("height", Math.round(targetWidth/aspect));
+	}
+}
+
+
 // ----------------------------------------------------------------------------------------------
 // -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 

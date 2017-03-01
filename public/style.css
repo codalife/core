@@ -108,13 +108,26 @@ text{
   visibility: hidden;
 }
 #gameHolder{
+  /*position: relative;*/
   overflow: scroll;
   margin-bottom: 140px;
+  background: url('images/olu-eletu.jpg') no-repeat center center;
+  background-size: 100% 100%;
+  color: white;
   /*position: relative;*/
+}
+#gameHolder h2 {
+  color: white;
 }
 #game{
   cursor: pointer;
   /*text-shadow: 0 0 3px #FF0000;*/
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
 }
 #buttons a{
   margin: 0 20px;
