@@ -40,7 +40,7 @@ class ArsenalModal extends React.Component{
 		    >
 		      <div >
 		        <div className="embed-responsive embed-responsive-16by9">
-		          <iframe className="embed-responsive-item" src="https://www.youtube.com/v/_zq8LpWmF5A?autoplay=1"></iframe>
+		          <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/_zq8LpWmF5A?enablejsapi=1?autoplay=1"></iframe>
 		        </div>
 		      </div>
 			      <form>

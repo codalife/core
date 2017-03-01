@@ -40,7 +40,7 @@ class PMGModal extends React.Component{
 		    >
 		      <div >
 		        <div className="embed-responsive embed-responsive-16by9">
-		          <iframe className="embed-responsive-item" src="https://www.youtube.com/v/8ikop3IkTr4&?autoplay=1"></iframe>
+		          <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/8ikop3IkTr4?enablejsapi=1?autoplay=1"></iframe>
 		        </div>
 		      </div>
 			      <form>

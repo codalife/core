@@ -24,6 +24,15 @@ class OddBall extends React.Component{
 	      try { document.body.appendChild(scriptGame); } catch (e) {}
 	    };
 	}
+	componentWillUnmount() {
+		var scripts = document.body.getElementsByTagName('script')
+		// console.log(scripts)
+
+    	for(var i=scripts.length-1; i>=2 ; i--){
+    		console.log(scripts[i])
+    		document.body.removeChild(scripts[i]);
+    	}
+    }
 	render(){
 		return (
 		  <div id="gameHolder">
@@ -34,7 +43,7 @@ class OddBall extends React.Component{
 				<h2>
 					Find the odd ball using the scales only twice.
 				</h2>
-			</div>
+			</div>q
 			<GameModalInstrusction ref='GameModalInstrusction'/>
 			<ModalRightSol ref="ModalRightSol"/>
 			<LuckModal ref="LuckModal"/>
