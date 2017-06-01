@@ -43,7 +43,7 @@ class OddBall extends React.Component{
 				<h2>
 					Find the odd ball using the scales only twice.
 				</h2>
-			</div>q
+			</div>
 			<GameModalInstrusction ref='GameModalInstrusction'/>
 			<ModalRightSol ref="ModalRightSol"/>
 			<LuckModal ref="LuckModal"/>
