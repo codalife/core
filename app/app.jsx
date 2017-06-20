@@ -14,6 +14,7 @@ ReactDOM.render(
         <Route path="workstation" component={WorkStation}></Route>
         <Route path="tasks/:stage" component={TasksList}></Route>
         <Route path="game" component={OddBall}></Route>
+        <Route path="blog" component={Blog}></Route>
         <IndexRoute component={OddBall}></IndexRoute>
       </Route>
     </Router>
