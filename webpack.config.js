@@ -28,6 +28,7 @@ module.exports = {
       ModalWrong: 'app/components/ModalWrong.jsx',
       PMGModal: 'app/components/PMGModal.jsx',
       ArsenalModal: 'app/components/ArsenalModal.jsx',
+      Blog: 'app/components/Blog.jsx',
     },
     extensions: ['', '.js', '.jsx']
   },

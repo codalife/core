@@ -1,0 +1,34 @@
+Last week I took a technical challenge on HackerRank. One of the assignments was not like the others.
+Usually I get to solve algorithms , like brackets, skyline, two sum and etc.
+But this time they asked me to add functionality to VanillaJS MVC ToDo app.
+
+The properly working app can be found here http://todomvc.com/examples/vanillajs/
+
+I am taking a chance to dive into the code of the app as I have another couple of months before HackReactor.
+
+There is a set of JavaScript files being loaded. I am my journey with the first one.
+The logic being that later files rely on what has been loaded earlier.
+
+Base.js:
+
+It's an immediately invoked function. A lot of RegEx stuff. Looks like it is for parsing something.
+From my understanding this does not influence the functionality of the app. Commenting the script proves it.
+It implements a set of underscore library methods and other functions to display a block in left-upper side
+when the app is launched on their homepage.
+
+We skip it.
+
+Helper.js
+
+On the first look it is an implementation of jQuery functionality: select element, add listener, and delegate.
+A couple of neat elegant tricks:
+Recursion in search of a parent element
+Copying array's forEach method to DOM NodeList, which allows to implement event delegation.
+
+Store.js
+
+This file defines the local storage and its methods. A store is not created here though.
+
+Things I have learned:
+
+!! - casting to boolean

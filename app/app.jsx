@@ -6,6 +6,7 @@ var Main = require('Main');
 var TasksList = require('TasksList');
 var WorkStation = require('WorkStation');
 var OddBall = require('OddBall');
+var Blog = require('Blog');
 
 ReactDOM.render(
   <div>
