@@ -18,6 +18,11 @@ when the app is launched on their homepage.
 
 We skip it.
 
+App.js
+
+All the calls are made within this file. The rest of the files define/describe parts of MVC.
+It also makes sure the view changes on link change
+
 Helper.js
 
 On the first look it is an implementation of jQuery functionality: select element, add listener, and delegate.
@@ -28,6 +33,33 @@ Copying array's forEach method to DOM NodeList, which allows to implement event 
 Store.js
 
 This file defines the local storage and its methods. A store is not created here though.
+
+
+...
+
+
+Started jumping from file to another to understand the data flow.
+
+View.js
+
+Creates an object that defines/references elements on the page.
+
+Controller.js
+
+The 'bind' method threw me off. I have never seen BIND being used like this.
+And the answer is that it is bind in view prototype is overwritten by developers.
+Bind connects html values to js data
+
+Data Flow
+
+On the template there are objects that reference html elements and listen to changes.
+Behavior that is connecting html with js is written in helper.js
+Upon change in the page a listener triggers View within controller.
+Controller passes data to Model.js.
+Model.js takes Store.js object as an argument.
+
+1. The App.js creates all the objects when the app starts/
+2. Further logic is going through Controller.js
 
 Things I have learned:
 
