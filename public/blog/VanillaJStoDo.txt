@@ -61,6 +61,10 @@ Model.js takes Store.js object as an argument.
 1. The App.js creates all the objects when the app starts/
 2. Further logic is going through Controller.js
 
+Template.js
+
+Describes how ToDo items look.
+
 Things I have learned:
 
 !! - casting to boolean
