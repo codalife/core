@@ -1,0 +1,9 @@
+Started Machine Learning Course on Coursera.
+
+It is taught by a Stanford professor. So far so good.
+
+He starts with explanations what kind of machine learning technologies exist.
+There are tow major approaches: supervised and unspervised.
+The difference is that the first one knows exactly what the categories are.
+The second one defines commonalities among different cases of a dataset and
+decides how to claster them.
