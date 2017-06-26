@@ -7,3 +7,14 @@ There are tow major approaches: supervised and unspervised.
 The difference is that the first one knows exactly what the categories are.
 The second one defines commonalities among different cases of a dataset and
 decides how to claster them.
+
+Day 2
+
+Remembered about how to derive the derivative function.
+
+In order to find the linear function to represent the approximation for the given data
+we should start with giving the Thetas initial values. It doesn't matter where to start.
+Later steps will adjust the values as they are being applied to the dataset.
+The purpose is to minimize the function of differences between the hypothesis and
+the real data. The derivative of the quadratic difference shows which side to go
+to achieve local minimum.
